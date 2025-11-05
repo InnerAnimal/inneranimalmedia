@@ -11,11 +11,15 @@ import (
 	"time"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
+func homeHandler(w http.ResponseWriter, r *http.Request) {
+	// Serve the index.html file
+	http.ServeFile(w, r, "index.html")
+}
+
+func containerHandler(w http.ResponseWriter, r *http.Request) {
 	message := os.Getenv("MESSAGE")
 	instanceId := os.Getenv("CLOUDFLARE_DURABLE_OBJECT_ID")
 	fmt.Fprintf(w, "Hi, I'm a container and this is my message: \"%s\", my instance ID is: %s", message, instanceId)
-
 }
 
 func errorHandler(w http.ResponseWriter, r *http.Request) {
@@ -28,8 +32,8 @@ func main() {
 	signal.Notify(stop, syscall.SIGINT, syscall.SIGTERM)
 
 	router := http.NewServeMux()
-	router.HandleFunc("/", handler)
-	router.HandleFunc("/container", handler)
+	router.HandleFunc("/", homeHandler)
+	router.HandleFunc("/container", containerHandler)
 	router.HandleFunc("/error", errorHandler)
 
 	server := &http.Server{
