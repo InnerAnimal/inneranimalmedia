@@ -1,0 +1,35 @@
+🤖 QUICK START FOR AI AGENTS (Copilot/Claude/ChatGPT)
+
+# InnerAnimal AI Toolbox - Next.js 15 + React 19 + TypeScript
+
+GOAL: AI-powered buttons that generate code/configs so non-technical users don't need to learn APIs.
+
+KEY FILES:
+- components/Header/Header.tsx - Nav with toolbox button
+- components/Toolbox/ToolboxModal.tsx - AI tools modal
+- components/Toolbox/MagicButton.tsx - Interactive AI buttons
+- lib/ai.ts - AI helpers (Claude/GPT)
+- app/api/ai/magic/route.ts - AI API endpoint
+
+COMMANDS:
+npm install && npm run dev  # Start dev server
+npm run build              # Build for production
+vercel --prod              # Deploy
+
+COLORS:
+Teal #339999 | Orange #FF6B35 | Purple #9B59B6 | Mint #4AECDC
+
+ADDING MAGIC BUTTON:
+1. Add tool to ToolboxModal.tsx aiTools array
+2. Add handler function in lib/ai.ts
+3. Add case in app/api/ai/magic/route.ts
+
+ENV REQUIRED:
+ANTHROPIC_API_KEY or OPENAI_API_KEY (for AI features)
+NEXT_PUBLIC_SUPABASE_URL + keys (for data/auth)
+
+SECURITY: All API calls server-side only. Never expose keys to browser.
+
+FULL DOCS: See AI_AGENT_PROMPT.md for complete guide.
+
+🚀 Ready to build!

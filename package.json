@@ -1,33 +1,36 @@
 {
-	"name": "inneranimalmedia",
-	"description": "Build a Container-enabled Worker",
-	"private": true,
-	"scripts": {
-		"deploy": "wrangler deploy",
-		"dev": "wrangler dev",
-		"start": "wrangler dev",
-		"cf-typegen": "wrangler types"
-	},
-	"devDependencies": {
-		"typescript": "5.8.3",
-		"wrangler": "^4.25.0"
-	},
-	"dependencies": {
-		"@cloudflare/containers": "^0.0.28",
-		"hono": "4.8.2"
-	},
-	"cloudflare": {
-		"label": "Containers Starter",
-		"products": [
-			"Workers",
-			"Durable Objects",
-			"Containers"
-		],
-		"categories": [],
-		"docs_url": "https://developers.cloudflare.com/containers/",
-		"preview_image_url": "https://imagedelivery.net/_yJ02hpOMj_EnGvsU2aygw/5aba1fb7-b937-46fd-fa67-138221082200/public",
-		"icon_urls": [
-			"https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/5ca0ca32-e897-4699-d4c1-6b680512f000/public"
-		]
-	}
+  "name": "inneranimal-ai-toolbox",
+  "version": "1.0.0",
+  "description": "AI-Powered Developer Toolbox with Smart Authentication",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.5.2",
+    "@supabase/supabase-js": "^2.47.10",
+    "next": "15.0.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "stripe": "^17.3.1",
+    "openai": "^4.73.1",
+    "@anthropic-ai/sdk": "^0.32.1",
+    "resend": "^4.0.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "typescript": "^5.7.2",
+    "tailwindcss": "^3.4.17",
+    "postcss": "^8.4.49",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.16.0",
+    "eslint-config-next": "15.0.3"
+  }
 }

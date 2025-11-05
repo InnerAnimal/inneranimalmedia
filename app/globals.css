@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --teal: #339999;
+  --orange: #FF6B35;
+  --orange-dark: #E85D00;
+  --purple: #9B59B6;
+  --mint: #4AECDC;
+  --nav-h: 72px;
+  --nav-hs: 60px;
+  --max-w: 1440px;
+}
+
+[data-theme="light"] {
+  --nav-bg: rgba(255, 255, 255, 0.75);
+  --nav-bg-scrolled: rgba(255, 255, 255, 0.85);
+  --nav-border: rgba(255, 107, 53, 0.15);
+  --nav-text: #0C2D31;
+  --nav-link: #FF6B35;
+  --nav-hover: #E85D00;
+  --nav-hover-bg: rgba(255, 107, 53, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.18);
+  --glass-border: rgba(255, 255, 255, 0.45);
+  --shadow: 0 10px 30px rgba(12, 45, 49, 0.25);
+}
+
+[data-theme="dark"] {
+  --nav-bg: rgba(12, 45, 49, 0.75);
+  --nav-bg-scrolled: rgba(12, 45, 49, 0.85);
+  --nav-border: rgba(74, 236, 220, 0.2);
+  --nav-text: rgba(255, 255, 255, 0.95);
+  --nav-link: #4AECDC;
+  --nav-hover: #5FDDDC;
+  --nav-hover-bg: rgba(74, 236, 220, 0.1);
+  --glass-bg: rgba(12, 45, 49, 0.35);
+  --glass-border: rgba(74, 236, 220, 0.22);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+@layer base {
+  * {
+    @apply antialiased;
+  }
+
+  body {
+    @apply min-h-screen bg-gradient-to-br from-purple/5 via-transparent to-mint/5;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  [data-theme="dark"] body {
+    @apply bg-gradient-to-br from-[#0a1f22] via-[#0C2D31] to-[#0a1f22];
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow);
+  }
+
+  .nav-scrolled {
+    background: var(--nav-bg-scrolled);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+  }
+}
